@@ -2,14 +2,14 @@ let storage = {};
 
 export function SimpleTag(tag: string) {
   return function decorator(target: any) {
-    storage[tag] = storage[tag] || new WeakSet();
+    storage[tag] = storage[tag] || [];
     storage[tag].add(target);
   };
 }
 export function SimpleObjectTag(tag: string) {
   return function decorator(target: any): any {
     let ctor: Function = function () {
-      storage[tag] = storage[tag] || new WeakSet();
+      storage[tag] = storage[tag] || [];
       storage[tag].add(this);
     };
 
