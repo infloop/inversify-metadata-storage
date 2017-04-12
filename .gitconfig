@@ -1,0 +1,6 @@
+[user]
+	name = infloop
+	email = infloop.gm@gmail.com
+[core]
+	autocrlf = false
+	eol = lf
