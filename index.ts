@@ -3,14 +3,14 @@ let storage = {};
 export function SimpleTag(tag: string) {
   return function decorator(target: any) {
     storage[tag] = storage[tag] || [];
-    storage[tag].add(target);
+    storage[tag].push(target);
   };
 }
 export function SimpleObjectTag(tag: string) {
   return function decorator(target: any): any {
     let ctor: Function = function () {
       storage[tag] = storage[tag] || [];
-      storage[tag].add(this);
+      storage[tag].push(this);
     };
 
     ctor.prototype = Object.create(target.prototype);
